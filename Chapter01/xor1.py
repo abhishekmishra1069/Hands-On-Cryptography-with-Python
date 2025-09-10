@@ -1,7 +1,7 @@
-text = raw_input("Enter text: ")
+text = input("Enter text: ")
 n = len(text)
 
 for i in range(n):
   t = text[i]
-  print t
+  print (t)
  

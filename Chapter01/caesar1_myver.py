@@ -1,6 +1,6 @@
 import sys
-#alpha =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-alpha = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"
+alpha =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#alpha = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"
 
 
 def encode_caesar(str_in):
@@ -33,6 +33,7 @@ if __name__ == "__main__":
     # Prompt the user for input and handle potential empty input
     try:
         str_in = input("Enter a message to encode (e.g., HELLO): ")
+        query = input("Press E for encode and D for decode: ")
     except (EOFError, KeyboardInterrupt):
         print("\nExiting.")
         sys.exit()
@@ -42,11 +43,13 @@ if __name__ == "__main__":
         sys.exit()
 
     # Encode and print the result
-    encoded = encode_caesar(str_in)
-    print("Obfuscated version:", encoded)
+    if query.upper() == 'D': 
+         decoded = decode_caesar(str_in)
+         print("Deobfuscated version:", decoded)
+         sys.exit()
+    elif query.upper() == 'E':
+         encoded = encode_caesar(str_in)
+         print("Obfuscated version:", encoded)
 
-    # Decode the encoded string and print the result
-    decoded = decode_caesar(encoded)
-    print("Deobfuscated version:", decoded)
 
 
